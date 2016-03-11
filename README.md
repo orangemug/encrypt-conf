@@ -13,11 +13,11 @@ Global usage
     Usage: bin/cli.js <command> [options]
 
     Commands:
-      encrypt      Encrypt the config
-      encrypt-key  Encrypt the config
-      decrypt      Decrypt the config
-      decrypt-key  Decrypt the config
-      re-encrypt   Re-encrypt the config
+      encrypt          Encrypt the config
+      encrypt-key      Encrypt the config
+      decrypt          Decrypt the config
+      decrypt-key      Decrypt the config
+      change-password  Change the password
 
     Options:
       -h, --help  Show help                                                [boolean]
