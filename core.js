@@ -1,8 +1,9 @@
-var crypto = require('crypto');
+var assign = require("lodash.assign");
+var crypto = require("crypto");
 var debug  = require("debug")("encrypt-conf");
 
 
-var algorithm = 'aes-256-ctr';
+var algorithm = "aes-256-ctr";
 
 function encryptValue(k, v, password) {
   if(v.match(/^encrypted:/)) {
@@ -10,8 +11,8 @@ function encryptValue(k, v, password) {
     return v;
   } else if(v.match(/^toencrypt:/)) {
     var cipher = crypto.createCipher(algorithm,password)
-    var crypted = cipher.update(v,'utf8','hex')
-    crypted += cipher.final('hex');
+    var crypted = cipher.update(v,"utf8","hex")
+    crypted += cipher.final("hex");
     return "encrypted:"+crypted;
   } else {
     return v;
@@ -22,8 +23,8 @@ function decryptValue(k, v, password, remove) {
   if(v.match(/^encrypted:/)) {
     v = v.replace(/^encrypted:/, "");
     var decipher = crypto.createDecipher(algorithm,password)
-    var dec = decipher.update(v,'hex','utf8')
-    dec += decipher.final('utf8');
+    var dec = decipher.update(v,"hex","utf8")
+    dec += decipher.final("utf8");
 
     if(!dec.match(/^toencrypt:/)) {
       var err = new Error("Invalid password");
@@ -43,7 +44,7 @@ function decryptValue(k, v, password, remove) {
 }
 
 function walkObj(obj, fn) {
-  obj = Object.assign({}, obj);
+  obj = assign({}, obj);
   for(var k in obj) {
     if(!obj.hasOwnProperty(k)) {
       continue;
