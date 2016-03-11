@@ -5,6 +5,9 @@
   "bin": {
     "encrypt-conf": "./bin/cli.js"
   },
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
   "licenses": [
     {
       "type": "MIT",

@@ -1,5 +1,5 @@
 var assert = require("assert");
-var encryptConf = require("../");
+var encryptConf = require("../core");
 
 
 describe("encrypt-conf", function() {
