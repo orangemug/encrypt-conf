@@ -1,7 +1,7 @@
 {
   "name": "encrypt-conf",
   "description": "Encrypt values in your config.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "bin": {
     "encrypt-conf": "./bin/cli.js"
   },
