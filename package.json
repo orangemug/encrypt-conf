@@ -2,6 +2,9 @@
   "name": "encrypt-conf",
   "description": "Encrypt values in your config.",
   "version": "0.1.0",
+  "bin": {
+    "encrypt-conf": "./bin/cli.js"
+  },
   "dependencies": {
     "debug": "^2.2.0",
     "pinkie-promise": "^2.0.0",
