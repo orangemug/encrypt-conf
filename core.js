@@ -1,6 +1,5 @@
-var crypto  = require('crypto');
-var Promise = require("pinkie-promise");
-var debug   = require("debug")("encrypt-conf");
+var crypto = require('crypto');
+var debug  = require("debug")("encrypt-conf");
 
 
 var algorithm = 'aes-256-ctr';
