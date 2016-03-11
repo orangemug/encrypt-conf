@@ -14,7 +14,7 @@ Encrypt/decrypt a config
 
 ## Install
 
-    npm install
+    npm install orangemug/encrypt-conf
 
 
 ## CLI
