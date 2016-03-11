@@ -5,6 +5,12 @@
   "bin": {
     "encrypt-conf": "./bin/cli.js"
   },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
   "dependencies": {
     "debug": "^2.2.0",
     "keytar": "^3.0.0",

@@ -1,5 +1,15 @@
 # encrypt-conf
-Encrypt/decrypt a config.
+Encrypt/decrypt a config
+
+[![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)][stability]
+[![circleci](https://circleci.com/gh/orangemug/encrypt-conf.png?style=shield)][circleci]
+[![Dependency Status](https://david-dm.org/orangemug/encrypt-conf.svg)][dm-prod]
+[![Dev Dependency Status](https://david-dm.org/orangemug/encrypt-conf/dev-status.svg)][dm-dev]
+
+[stability]: https://github.com/orangemug/stability-badges#experimental
+[circleci]:  https://circleci.com/gh/orangemug/encrypt-conf
+[dm-prod]:   https://david-dm.org/orangemug/encrypt-conf
+[dm-dev]:    https://david-dm.org/orangemug/encrypt-conf#info=devDependencies
 
 
 ## Install
