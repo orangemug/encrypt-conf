@@ -70,6 +70,7 @@ To use in your app
 
     // NOTE: It'll prompt in development if `ENCRYPT_CONF_PASSPHRASE`
     prompt.env.ENCRYPT_CONF_PASSPHRASE = "password";
+
     var config = encryptConf(__dirname+"/config.json", prompt.env.ENCRYPT_CONF_PASSPHRASE);
     assert.equal(config.secret, "secret");
 
