@@ -23,7 +23,7 @@ yargs
   )
   .command(
     'encrypt-key',
-    'Encrypt the config',
+    'Encrypt a key/value into the config',
     guard(require("./commands/encrypt-key"))
   )
   .command(
@@ -33,7 +33,7 @@ yargs
   )
   .command(
     'decrypt-key',
-    'Decrypt the config',
+    'Decrypt a value from the config',
     guard(require("./commands/decrypt-key"))
   )
   .command(
