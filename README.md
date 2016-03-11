@@ -14,10 +14,11 @@ Global usage
 
     Commands:
       encrypt          Encrypt the config
-      encrypt-key      Encrypt the config
+      encrypt-key      Encrypt a key/value into the config
       decrypt          Decrypt the config
-      decrypt-key      Decrypt the config
+      decrypt-key      Decrypt a value from the config
       change-password  Change the password
+      keychain-reset   Reset from keychain
 
     Options:
       -h, --help  Show help                                                [boolean]
