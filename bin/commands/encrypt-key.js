@@ -1,8 +1,7 @@
 var path        = require("path");
-var encryptConf = require("../../");
+var encryptConf = require("../../core");
 var json        = require("../json");
-var password    = require("../password");
-var resp        = require("../resp");
+var prompt      = require("../prompt");
 
 
 module.exports = function(yargs) {
@@ -15,15 +14,10 @@ module.exports = function(yargs) {
   var value = String(argv._[3]);
 
   var filepath = path.join(process.cwd(), argv._[1]);
-  json.get(filepath)
-    .then(function(data) {
-      data[key] = "toencrypt:"+value;
-
-      return password.get({password: "password"})
-        .then(function(res) {
-          return encryptConf.encrypt(data, res.password);
-        })
-    })
-    .then(json.set.bind(this, filepath))
-    .catch(resp.error);
+  var data = json.readSync(filepath);
+  data[key] = "toencrypt:"+value;
+  var password = prompt("password");
+  data = encryptConf.encrypt(data, password);
+  json.writeSync(filepath, data);
+  console.error("File written to: %s", filepath);
 };

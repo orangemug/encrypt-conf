@@ -12,8 +12,12 @@ module.exports = function(yargs) {
 
   var filepath = path.join(process.cwd(), argv._[1]);
   var data = json.readSync(filepath);
-  var password = prompt("password");
-  data = encryptConf.decrypt(data, password);
+
+  var oldPassword = prompt("old password");
+  var newPassword = prompt("new password");
+
+  var data = encryptConf.decrypt(data, oldPassword);
+  encryptConf.encrypt(data, newPassword);
   json.writeSync(filepath, data);
   console.error("File written to: %s", filepath);
 };

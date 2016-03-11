@@ -1,38 +1,17 @@
-var fs      = require("fs");
-var Promise = require("pinkie-promise");
+var fs = require("fs");
 
 
-function get(filepath) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(filepath, function(err, data) {
-      if(err) {
-        return error(err);
-      }
-
-      try {
-        return resolve(JSON.parse(data));
-      } catch(err) {
-        return reject(err);
-      }
-    });
-  });
+function readSync(filepath) {
+  var raw = fs.readFileSync(filepath)
+  return JSON.parse(raw);
 }
 
-function set(filepath, data) {
-  return new Promise(function(resolve, reject) {
-    var jsonData = JSON.stringify(data, null, "  ");
-    fs.writeFile(filepath, jsonData, function(err, data) {
-      if(err) {
-        return reject(err);
-      }
-      else {
-        return resolve();
-      }
-    });
-  });
+function writeSync(filepath, data) {
+  var jsonData = JSON.stringify(data, null, "  ");
+  fs.writeFileSync(filepath, jsonData);
 }
 
 module.exports = {
-  get: get,
-  set: set
+  readSync: readSync,
+  writeSync: writeSync
 };
