@@ -1,4 +1,4 @@
-# encrypt-conf
+# encrypt-conf
 Encrypt/decrypt a config.
 
 
