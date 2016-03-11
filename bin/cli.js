@@ -1,4 +1,5 @@
-var yargs = require("yargs");
+var keytar = require('keytar');
+var yargs  = require("yargs");
 
 function guard(fn) {
   return function(yargs) {
@@ -6,7 +7,7 @@ function guard(fn) {
       fn(yargs);
       process.exit(0);
     } catch(err) {
-      console.error(err);
+      console.error("ERR: %s", err.toString());
       process.exit(1);
     }
   }
@@ -39,6 +40,11 @@ yargs
     'change-password',
     'Change the password',
     guard(require("./commands/change-password"))
+  )
+  .command(
+    'keychain-reset',
+    'Reset from keychain',
+    guard(require("./commands/keychain-reset"))
   )
   .strict()
   .help("help")

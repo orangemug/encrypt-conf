@@ -27,7 +27,9 @@ function decryptValue(k, v, password, remove) {
     dec += decipher.final('utf8');
 
     if(!dec.match(/^toencrypt:/)) {
-      throw "Invalid password";
+      var err = new Error("Invalid password");
+      err.code = "invalid_password";
+      throw err;
     } else {
       if(remove) {
         return dec.replace(/^toencrypt:/, "")

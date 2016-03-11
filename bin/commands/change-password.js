@@ -2,6 +2,7 @@ var path        = require("path");
 var encryptConf = require("../../core");
 var json        = require("../json");
 var prompt      = require("../prompt");
+var keytar      = require("keytar");
 
 
 module.exports = function(yargs) {
@@ -13,10 +14,17 @@ module.exports = function(yargs) {
   var filepath = path.join(process.cwd(), argv._[1]);
   var data = json.readSync(filepath);
 
-  var oldPassword = prompt("old password");
-  var newPassword = prompt("new password");
+  var oldPassword = prompt("old password", filepath);
+  var newPassword = prompt("new password", filepath);
 
-  var data = encryptConf.decrypt(data, oldPassword);
+  try {
+    var data = encryptConf.decrypt(data, oldPassword);
+  } catch(err) {
+    if(err.code === "invalid_password") {
+      keytar.deletePassword("encrypt-conf", filepath);
+    }
+  }
+
   encryptConf.encrypt(data, newPassword);
   json.writeSync(filepath, data);
   console.error("File written to: %s", filepath);

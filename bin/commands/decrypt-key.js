@@ -2,6 +2,7 @@ var path        = require("path");
 var encryptConf = require("../../core");
 var json        = require("../json");
 var prompt      = require("../prompt");
+var keytar      = require("keytar");
 
 
 module.exports = function(yargs) {
@@ -15,13 +16,20 @@ module.exports = function(yargs) {
   var filepath = path.join(process.cwd(), argv._[1]);
   var data = json.readSync(filepath);
 
-  var password = prompt("password");
-  var out = encryptConf.decrypt(data, password);
+  var password = prompt("password", filepath);
+
+  try {
+    var out = encryptConf.decrypt(data, password);
+  } catch(err) {
+    if(err.code === "invalid_password") {
+      keytar.deletePassword("encrypt-conf", filepath);
+    }
+    throw err;
+  }
+
   if(out.hasOwnProperty(key)) {
-    resp.success(
-      out[key].replace(/^toencrypt:/, "")
-    );
+    console.log(out[key].replace(/^toencrypt:/, ""))
   } else {
-    resp.error("No such key");
+    throw new Error("No such key");
   }
 };
