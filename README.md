@@ -27,6 +27,7 @@ Command usage
 
 Some example usage, first off see the usage
 
+    $ node bin/cli.js encrypt-key 
     Usage: bin/cli.js <config_file> <key> <value>
 
     Options:
