@@ -1,5 +1,5 @@
 var core = require("./core");
-var prompt = require("./bin/prompt");
+var prompt = require("./lib/prompt");
 var fs = require("fs");
 
 var env = process.env.NODE_ENV || "development";

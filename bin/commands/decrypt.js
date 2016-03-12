@@ -1,7 +1,7 @@
 var path        = require("path");
 var encryptConf = require("../../core");
 var json        = require("../json");
-var prompt      = require("../prompt");
+var prompt      = require("../../lib/prompt");
 var keytar      = require("keytar");
 
 
