@@ -1,5 +1,5 @@
 var core = require("./core");
-var prompt = require("prompt-sync")();
+var prompt = require("./bin/prompt");
 var fs = require("fs");
 
 var env = process.env.NODE_ENV || "development";
@@ -10,7 +10,7 @@ module.exports = function(filepath, password) {
 
   if(!password) {
     if(env === "development") {
-      password = prompt("Passpharse to decrypt config: ", {echo: "*"});
+      password = prompt("Passpharse to decrypt config: ", filepath);
     } else {
       throw "No password to decrypt config"
     }
