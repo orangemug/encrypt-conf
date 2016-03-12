@@ -17,8 +17,8 @@
   "dependencies": {
     "debug": "^2.2.0",
     "lodash.assign": "^4.0.6",
+    "pkg-up": "^1.0.0",
     "prompt-sync": "^4.0.4",
-    "read-pkg": "^1.1.0",
     "semver": "^5.1.0",
     "yargs": "^4.2.0"
   },
