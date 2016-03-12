@@ -1,5 +1,4 @@
-var keytar = require('keytar');
-var yargs  = require("yargs");
+var yargs = require("yargs");
 
 function guard(fn) {
   return function(yargs) {

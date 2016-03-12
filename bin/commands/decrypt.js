@@ -1,8 +1,7 @@
 var path        = require("path");
 var encryptConf = require("../../core");
 var json        = require("../json");
-var prompt      = require("../../lib/prompt");
-var keytar      = require("keytar");
+var passwordMgr = require("../../lib/password-manager");
 
 
 module.exports = function(yargs) {
@@ -13,13 +12,13 @@ module.exports = function(yargs) {
 
   var filepath = path.join(process.cwd(), argv._[1]);
   var data = json.readSync(filepath);
-  var password = prompt("password", filepath);
+  var password = passwordMgr.get("password", filepath);
 
   try {
     data = encryptConf.decrypt(data, password);
   } catch(err) {
     if(err.code === "invalid_password") {
-      keytar.deletePassword("encrypt-conf", filepath);
+      passwordMgr.delete("encrypt-conf", filepath);
     }
   }
 

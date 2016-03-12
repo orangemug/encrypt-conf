@@ -1,5 +1,5 @@
 var path   = require("path");
-var keytar = require("keytar");
+var passwordMgr = require("../../lib/password-manager");
 
 
 module.exports = function(yargs) {
@@ -9,5 +9,5 @@ module.exports = function(yargs) {
     .argv
 
   var filepath = path.join(process.cwd(), argv._[1]);
-  keytar.deletePassword("encrypt-conf", filepath);
+  passwordMgr.delete("encrypt-conf", filepath, {warn: true});
 };
