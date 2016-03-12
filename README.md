@@ -79,5 +79,13 @@ To use in your app
 **NOTE:** This is all synchronous so should be done at require time.
 
 
+## Keychain
+If you have [keytar](https://www.npmjs.com/package/keytar) installed this package will store your password in you keychain for you. This may cause issues in production so it best to install it as a `devDependencies` only
+
+    "devDependencies": {
+      "keytar": "^3.0.0"
+    }
+
+
 ## License
 [MIT](LICENSE)
