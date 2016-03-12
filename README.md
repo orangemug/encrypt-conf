@@ -4,7 +4,7 @@ Encrypted config, because API keys always a pain point for new users.
 **NOTE:** Not ready for use at this point as the encryption still needs work / review.
 
 [![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)][stability]
-[![circleci](https://circleci.com/gh/orangemug/encrypt-conf.png?style=shield)][circleci]
+[![circleci](https://circleci.com/gh/orangemug/encrypt-conf.png)][circleci]
 [![Dependency Status](https://david-dm.org/orangemug/encrypt-conf.svg)][dm-prod]
 [![Dev Dependency Status](https://david-dm.org/orangemug/encrypt-conf/dev-status.svg)][dm-dev]
 
