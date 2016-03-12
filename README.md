@@ -80,7 +80,7 @@ To use in your app
 
 
 ## Keychain
-If you have [keytar](https://www.npmjs.com/package/keytar) installed this package will store your password in you keychain for you. This may cause issues in production so it best to install it as a dev dependency only
+If you have [keytar](https://www.npmjs.com/package/keytar) installed, this package will store your password in your keychain. This may cause issues in production so its best to install it as a dev dependency only
 
     "devDependencies": {
       "keytar": "^3.0.0"
